@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
+<!--
+ Copyright (c) 2014, 2025, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
 
-    <!-- nav pane -->
-    <div class="header-nav">
-        <div class="header-nav-wrapper">
-            <nav class="header-nav-list">
-                <div
-                    class="header-nav-item header-nav-item--collection header-nav-item--active header-nav-item--homepage">
-                    <a href="index.html" data-animation-role="header-element" aria-current="page">
-                        About
-                    </a>
-                </div>
-                <div class="header-nav-item header-nav-item--collection">
-                    <a href="portfolio.html" data-animation-role="header-element">
-                        Portfolio
-                    </a>
-                </div>
-                <div class="header-nav-item header-nav-item--collection">
-                    <a href="resume.html" data-animation-role="header-element">
-                        Resume
-                    </a>
-                </div>
-            </nav>
-        </div>
-    </div>
+<!-- ************************ IMPORTANT INFORMATION ************************************
+  This web basic template is provided as an example of how to configure
+  a JET web application.  It contains the Oracle JET framework and a default
+  requireJS configuration file to show how JET can be setup in a common application.
+  This project template can be used in conjunction with demo code from the JET
+  website to test JET component behavior and interactions.
 
+  Any CSS styling with the prefix "demo-" is for demonstration only and is not
+  provided as part of the JET framework.
 
-    <!-- <div class="sqs-html-content" data-sqsp-text-block-content=""> -->
-    <div>
-        <h3 class="heading">Hello world</h3>
-        <p class="paragraph">Welcome to my corner of the internet. This page show cases some of the work that I have
-            done over the course of my career to date.</p>
-        <p class="paragraph">In the last few years, I have been lucky enough to
-            write about x, y, and z. My goal is always to create useful and approachable content that helps the reader
-            get their job done. Check out my portfolio and resume for more details.</p>
-        <p class="paragraph">If you'd like to talk about
-            possible opportunities, get in touch by <a
-                href="mailto:walter.egan@gmail.com?subject=TBD"><strong>email</strong></a><strong>
-            </strong>or reach out on <a href="https://www.linkedin.com/in/walteregan/"><strong>LinkedIn</strong></a>.
-        </p>
-    </div>
-</body>
+  Please see the demos under Cookbook/Patterns/App Shell: Web and the CSS documentation
+  under Support/API Docs/Non-Component Styling on the JET website for more information on how to use
+  the best practice patterns shown in this template.
 
+  Aria Landmark role attributes are added to the different sections of the application
+  for accessibility compliance. If you change the type of content for a specific
+  section from what is defined, you should also change the role value for that
+  section to represent the appropriate content type.
+  ***************************** IMPORTANT INFORMATION ************************************ -->
+<html lang="en-us">
+  <head>
+    <title>Oracle JET VDOM Starter Template - Basic</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1"/>
+    <meta name="description" content="The Oracle JET VDOM Starter Template" />
+    <link rel="icon" href="styles/images/JET-Favicon-Red-32x32.png" type="image/x-icon" />
+    <!-- This is injects main css file for the default theme -->
+<!-- injector:theme -->
+<link rel="stylesheet" href="styles/redwood/19.0.1/web/redwood.min.css" id="basestyles" />
+<link rel="stylesheet" href="styles/theme-redwood/19.0.1/web/theme.css" id="themestyle" />
+<!-- endinjector -->
+    <!-- This contains icon fonts used by the starter template -->
+<!-- injector:font -->
+<link rel="stylesheet" id="uxiconFont" href="https://static.oracle.com/cdn/fnd/gallery/2404.0.0/images/iconfont/ojuxIconFont.min.css" />
+<!-- endinjector:font -->
+    <!-- This is where you would add any app specific styling -->
+    <link rel="stylesheet" href="styles/app.css" type="text/css" />
+  </head>
+  <body class="oj-web-applayout-body" data-oj-binding-provider="none">
+    <app-root></app-root>
+    <!-- This injects script tags for the main javascript files -->
+<!-- injector:scripts -->
+<script type='text/javascript' src='./libs/require/require.js'></script>
+<script type='text/javascript' src='./bundle.js'></script>
+<!-- endinjector -->
+  </body>
 </html>
