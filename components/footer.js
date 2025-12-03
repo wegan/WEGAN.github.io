@@ -30,6 +30,6 @@ define(["require", "exports", "preact/jsx-runtime"], function (require, exports,
         }
     ];
     function Footer({ links = _DEFAULT_LINKS }) {
-        return ((0, jsx_runtime_1.jsxs)("footer", { class: "oj-web-applayout-footer", role: "contentinfo", children: [(0, jsx_runtime_1.jsx)("div", { class: "oj-web-applayout-footer-item oj-web-applayout-max-width", children: (0, jsx_runtime_1.jsx)("ul", { children: links.map((item) => ((0, jsx_runtime_1.jsx)("li", { children: (0, jsx_runtime_1.jsx)("a", { id: item.linkId, href: item.linkTarget, target: "_blank", children: item.name }) }))) }) }), (0, jsx_runtime_1.jsx)("div", { class: "oj-web-applayout-footer-item oj-web-applayout-max-width oj-text-color-secondary oj-typography-body-sm", children: "Copyright \u00A9 2014, 2025 Oracle and/or its affiliates All rights reserved." })] }));
+        return ((0, jsx_runtime_1.jsx)("footer", { class: "oj-web-applayout-footer", role: "contentinfo", children: (0, jsx_runtime_1.jsx)("div", { style: "justify-content: center", class: "oj-flex-item oj-flex oj-justify-content-center oj-text-color-secondary oj-typography-body-sm", children: "Copyright \u00A9 2025 Walter Egan" }) }));
     }
 });
