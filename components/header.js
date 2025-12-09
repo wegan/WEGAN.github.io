@@ -1,8 +1,9 @@
-define(["require", "exports", "preact/jsx-runtime", "preact/hooks", "ojs/ojresponsiveutils", "ojs/ojtoolbar", "ojs/ojmenu", "ojs/ojbutton"], function (require, exports, jsx_runtime_1, hooks_1, ResponsiveUtils) {
+define(["require", "exports", "preact/jsx-runtime", "preact/hooks", "ojs/ojresponsiveutils", "ojs/ojarraydataprovider", "ojs/ojtoolbar", "ojs/ojmenu", "ojs/ojbutton", "ojs/ojnavigationlist"], function (require, exports, jsx_runtime_1, hooks_1, ResponsiveUtils, ArrayDataProvider) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.Header = Header;
-    function Header({ appName, userLogin }) {
+    exports.Header = void 0;
+    const Header = (props) => {
+        const [selectedPage, setSelectedPage] = (0, hooks_1.useState)(props.page ? props.page : "about");
         const mediaQueryRef = (0, hooks_1.useRef)(window.matchMedia(ResponsiveUtils.getFrameworkQuery("sm-only")));
         const [isSmallWidth, setIsSmallWidth] = (0, hooks_1.useState)(mediaQueryRef.current.matches);
         (0, hooks_1.useEffect)(() => {
@@ -16,9 +17,17 @@ define(["require", "exports", "preact/jsx-runtime", "preact/hooks", "ojs/ojrespo
             return (isSmallWidth ? "icons" : "all");
         }
         ;
-        function getEndIconClass() {
-            return (isSmallWidth ? "oj-icon demo-appheader-avatar" : "oj-component-icon oj-button-menu-dropdown-icon");
-        }
-        return ((0, jsx_runtime_1.jsx)("header", { role: "banner", class: "oj-web-applayout-header", children: (0, jsx_runtime_1.jsx)("div", { class: "oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center", children: (0, jsx_runtime_1.jsx)("div", { class: "oj-flex-bar-middle oj-sm-align-items-baseline", style: "justify-content: center", children: (0, jsx_runtime_1.jsx)("h1", { class: "oj-web-applayout-header-title", title: "Walter Egan", children: appName }) }) }) }));
-    }
+        const routesDP = new ArrayDataProvider(props.routes.slice(1), {
+            keyAttributes: "path",
+        });
+        const pageChangeHandler = (event) => {
+            if (event.detail.updatedFrom === "internal")
+                props.onPageChanged(event.detail.value);
+        };
+        const renderNavList = (item) => {
+            return ((0, jsx_runtime_1.jsx)("li", { id: item.data.path, children: (0, jsx_runtime_1.jsxs)("a", { href: "#", children: [(0, jsx_runtime_1.jsx)("span", { class: item.data.detail.iconClass }), getDisplayType() === "all" ? item.data.detail.label : ""] }) }));
+        };
+        return ((0, jsx_runtime_1.jsx)("header", { role: "banner", class: "oj-web-applayout-header", children: (0, jsx_runtime_1.jsxs)("div", { class: "oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center", children: [(0, jsx_runtime_1.jsx)("div", { class: "oj-flex-bar-middle oj-sm-align-items-baseline", children: (0, jsx_runtime_1.jsx)("h1", { class: "oj-web-applayout-header-title", title: "Walter Egan", children: props.appName }) }), (0, jsx_runtime_1.jsx)("div", { class: "oj-flex-bar-end", children: (0, jsx_runtime_1.jsx)("div", { role: "navigation", class: "oj-web-applayout-max-width oj-web-applayout-navbar", children: (0, jsx_runtime_1.jsx)("oj-navigation-list", { selection: props.page, edge: "top", id: "navilist1", "aria-label": "Main navigation, select a page", onselectionChanged: pageChangeHandler, drillMode: "none", data: routesDP, children: (0, jsx_runtime_1.jsx)("template", { slot: "itemTemplate", render: renderNavList }) }) }) })] }) }));
+    };
+    exports.Header = Header;
 });
