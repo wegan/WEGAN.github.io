@@ -30,6 +30,6 @@ define(["require", "exports", "preact/jsx-runtime"], function (require, exports,
         }
     ];
     function Footer({ links = _DEFAULT_LINKS }) {
-        return ((0, jsx_runtime_1.jsx)("footer", { class: "oj-web-applayout-footer", role: "contentinfo", children: (0, jsx_runtime_1.jsx)("div", { style: "justify-content: center", class: "oj-flex-item oj-flex oj-justify-content-center oj-text-color-secondary oj-typography-body-sm", children: "Copyright \u00A9 2025 Walter Egan - All rights reserved." }) }));
+        return ((0, jsx_runtime_1.jsx)("footer", { class: "oj-web-applayout-footer", role: "contentinfo", children: (0, jsx_runtime_1.jsx)("div", { style: "justify-content: center", class: "oj-flex-item oj-flex oj-justify-content-center oj-text-color-secondary oj-typography-body-sm", children: "Copyright \u00A9 2026 Walter Egan - All rights reserved." }) }));
     }
 });
